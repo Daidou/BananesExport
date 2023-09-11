@@ -2,6 +2,7 @@ package com.bananesexport.bananesexport.controller;
 
 import com.bananesexport.bananesexport.model.Destinataire;
 import com.bananesexport.bananesexport.repository.DestinataireRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -10,6 +11,7 @@ public class DestinataireController {
 
 
 
+    @Autowired
     private DestinataireRepository destinataireRepository;
 
 
@@ -25,7 +27,7 @@ public class DestinataireController {
     }
 
     @PutMapping("/{id}")
-    public Destinataire updateDestinataire(@PathVariable Long id, @RequestBody Destinataire destinataire) {
+    public Destinataire updateDestinataire(@PathVariable String id, @RequestBody Destinataire destinataire) {
         destinataire.setId(id);
         return destinataireRepository.save(destinataire);
     }

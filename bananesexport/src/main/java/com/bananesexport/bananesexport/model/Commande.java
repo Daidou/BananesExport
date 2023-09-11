@@ -13,7 +13,7 @@ import java.time.LocalDate;
 public class Commande {
 
     @Id
-    private Long id;
+    private String id;
 
     private Destinataire destinataire;
     private LocalDate dateLivraison;

@@ -1,5 +1,6 @@
 package com.bananesexport.bananesexport.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,6 +17,7 @@ public class Commande {
     private String id;
 
     private Destinataire destinataire;
+    @JsonFormat(pattern="yyyy-MM-dd")
     private LocalDate dateLivraison;
     private int bananesKg;
     private double prix;

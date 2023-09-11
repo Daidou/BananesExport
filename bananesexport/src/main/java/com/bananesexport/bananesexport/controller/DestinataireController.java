@@ -28,7 +28,6 @@ public class DestinataireController {
 
     @PutMapping("/{id}")
     public Destinataire updateDestinataire(@PathVariable String id, @RequestBody Destinataire destinataire) {
-        destinataire.setId(id);
         return destinataireRepository.save(destinataire);
     }
 

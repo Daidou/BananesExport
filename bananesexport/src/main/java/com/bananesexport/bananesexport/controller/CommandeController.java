@@ -3,6 +3,7 @@ package com.bananesexport.bananesexport.controller;
 
 import com.bananesexport.bananesexport.model.Commande;
 import com.bananesexport.bananesexport.repository.CommandeRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,15 +13,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/v1/commande")
+@RequestMapping("api/v1/commandes")
 public class CommandeController {
 
+
+    @Autowired
     private CommandeRepository commandeRepository;
 
     @PostMapping
     public ResponseEntity<Commande> createCommande(@RequestBody Commande commande) {
 
-        if (ValideDate(commande.getDateLivraison()) || ValideQuantite(commande.getBananesKg())) {
+        if (!ValideDate(commande.getDateLivraison()) || !ValideQuantite(commande.getBananesKg())) {
             return ResponseEntity.badRequest().build();
         }
 
@@ -42,7 +45,7 @@ public class CommandeController {
     @PutMapping("/{id}")
     public ResponseEntity<Commande> updateCommande(@PathVariable Long id, @RequestBody Commande commande) {
 
-        if (ValideDate(commande.getDateLivraison()) || ValideQuantite(commande.getBananesKg())) {
+        if (!ValideDate(commande.getDateLivraison()) || !ValideQuantite(commande.getBananesKg())) {
             return ResponseEntity.badRequest().build();
         }
 

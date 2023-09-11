@@ -36,7 +36,7 @@ package com.bananesexport.bananesexport.controllerTests;
 
          String jsonCommande = objectMapper.writeValueAsString(commande);
 
-         MvcResult result = mock.perform(MockMvcRequestBuilders.post("api/v1/commande")
+         MvcResult result = mock.perform(MockMvcRequestBuilders.post("api/v1/commandes")
          .contentType(MediaType.APPLICATION_JSON)
          .content(jsonCommande))
          .andReturn();

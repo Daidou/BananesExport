@@ -85,6 +85,7 @@ public class CommandeController {
         return dateLivraison == null || !dateLivraison.isAfter(dDate.plusWeeks(1));
     }
     private boolean ValideQuantite(int quantiteBananesKg) {
+        // a modifier les variable 10000, 25 non définie ???
         return quantiteBananesKg >= 0 && quantiteBananesKg <= 10000 && quantiteBananesKg % 25 == 0;
     }
 }
